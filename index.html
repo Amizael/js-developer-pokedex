@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+	<!-- Normalize -->
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.1/normalize.min.css"
+		integrity="sha512-NhSC1YmyruXifcj/KFRWoC561YpHpc5Jtzgvbuzx5VozKpWvQ+4nXhPdFgmx8xqexRcpAglTj9sIBWINXa8x5w=="
+		crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+	<!-- Estilo -->
+	<link rel="stylesheet" href="assets/css/style.css">
+	<title> Página </title>
+</head>
+
+<body>
+
+	<!---------- INÍCIO MAIN ---------->
+	<main>
+		<section class="content"> <!-- Início section -->
+
+			<h1>
+				Pokedex
+			</h1>
+
+			<div id="cards-pokemons" class="pokemons"> <!-- início Pokemons // -->
+				<!-- Aqui vai ficar os cards dos pokemons-->
+
+
+			</div><!-- fim Pokemons // -->
+
+
+			<div class="paginacao"><!-- Início botão -->
+				<button id="btnPaginacao" type="button">
+					Mostrar +
+				</button>
+			</div><!-- Fim botão -->
+
+		</section><!-- fim section -->
+
+
+		<section id="modal" style="display: none;" >
+			
+		</section>
+	</main>
+	<!---------- FIM MAIN ---------->
+
+	<script src="assets/js/poke-api.js"></script>
+	<script src="assets/js/main.js"></script>
+	<script src="assets/js/modal.js"></script>
+</body>
+
+</html>

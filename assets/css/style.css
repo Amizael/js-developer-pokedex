@@ -1,0 +1,528 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@100;300;500;700&display=swap');
+@import url("https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css");
+
+* {
+    margin: 0;
+    padding: 0;
+    border: 0;
+    box-sizing: border-box;
+    text-decoration: none;
+    font-family: 'Roboto', sans-serif;
+    font-weight: 500;
+    list-style: none;
+    color: #23272A;
+}
+
+html {
+    font-size: 16px;
+    color: black;
+}
+
+body {
+    background-color: #e9e9e9;
+}
+
+h1 {
+    font-size: 1.8rem;
+    font-weight: 700;
+}
+
+h2 {
+    font-size: 1.5rem;
+    font-weight: 700;
+}
+
+p {
+    font-size: 1rem;
+    font-weight: 500;
+    color: #555;
+}
+
+img {
+    max-width: 100%;
+}
+
+button {
+    cursor: pointer;
+}
+
+
+
+/*****************************************
+            ESTILO DO MAIN
+******************************************/
+
+section.content {
+    background: white;
+    width: 100%;
+    max-width: 350px;
+    height: auto;
+    padding: 2rem 1rem;
+    margin: 20px auto;
+    border: 2px solid #f1f1f1;
+    border-radius: 20px;
+}
+
+main .pokemons {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 0.8rem;
+    margin: 1.5rem 0;
+}
+
+.pokemon {
+    background-color: #49D0B0;
+    min-height: 180px;
+    padding: 1rem;
+    border-radius: 1rem;
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+}
+
+.pokemon .numero {
+    font-size: 0.8rem;
+    font-weight: 300;
+    text-align: right;
+    color: #fff;
+    opacity: .7;
+}
+
+.pokemon .titulo {
+    font-size: 1.2rem;
+    color: white;
+    text-transform: capitalize;
+}
+
+.pokemon .box {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 0.3rem;
+    height: 100%;
+}
+
+.pokemon ul {
+    color: #FFF;
+    display: flex;
+    flex-direction: row;
+    gap: 5px;
+}
+
+.pokemon ul.pokemon-textos li.tipo {
+    border-radius: 0.5rem;
+    text-align: center;
+    font-size: 0.75rem;
+    padding: .2rem 0.3rem;
+    color: #FFF;
+    filter: brightness(1.1);
+}
+
+.pokemon img {
+    max-width: 90px;
+    max-height: 90px;
+}
+
+.paginacao {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 50px 0;
+}
+
+.paginacao #btnPaginacao {
+    width: 300px;
+    height: 40px;
+    background-color: #6C79DB;
+    padding: .5rem 1.5rem;
+    border-radius: 20px;
+    font-size: 1.2rem;
+    text-align: center;
+    color: white;
+    transition: background-color 0.5s;
+}
+
+.paginacao #btnPaginacao:hover {
+    background-color: #394de8;
+}
+
+/************ MODAL POKEMON *******************/
+#modal {
+    background-color: rgba(0, 0, 0, 0.9);
+    width: 100%;
+    height: 100%;
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 5;
+    overflow-y: auto;
+}
+
+#modal .content {
+    width: 100%;
+    max-width: 600px;
+    margin: 10px auto;
+    border-radius: 20px;
+    display: flex;
+    flex-direction: column;
+}
+
+#modal .content .topo {
+    margin: 50px 0 30px;
+    padding: 0 1rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 10px;
+}
+
+#modal .content .topo span {
+    color: white;
+    font-size: 1rem;
+}
+
+#modal .content .topo span a i {
+    color: white;
+    font-size: 32px;
+    padding: 10px;
+    border-radius: 5px;
+}
+
+#modal .content .topo span.titulo {
+    font-size: 2rem;
+    font-weight: 400;
+    text-transform: capitalize;
+}
+
+#modal .content .imagem {
+    width: 100%;
+    height: 200px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+}
+
+#modal .imagem img {
+    width: 200px;
+    height: 200px;
+    position: absolute;
+    top: 30px;
+}
+
+#modal .informacoes {
+    background-color: white;
+    padding: 3.5rem 1rem 3.5rem;
+    border-radius: 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+}
+
+#modal .informacoes p {
+    text-align: center;
+}
+
+#modal .informacoes .info_abas {
+    display: flex;
+    justify-content: center;
+    gap: 1rem;
+}
+
+#modal .informacoes .info_abas button {
+    background-color: white;
+    padding: 0.5rem 2rem;
+    border-radius: 10px;
+    border-bottom: 3px solid #ddd;
+    font-size: 1rem;
+    transition: 0.5s;
+}
+
+#modal .informacoes .info_abas button.ativo {
+    background-color: #678fee;
+    color: white;
+}
+
+#modal .informacoes .info_abas button:hover {
+    background-color: #678fee;
+    color: white;
+}
+
+#info_pokemon {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 1rem
+}
+
+#info_pokemon .ativo {
+    display: flex;
+}
+
+#info_pokemon .oculto {
+    display: none;
+}
+
+
+/******************* LISTA PERFIL *************************/
+.lista_perfil {
+    width: 80%;
+    padding: 10px 0;
+    display: none;
+    flex-direction: column;
+    gap: 0.5rem;
+}
+
+.lista_perfil div {
+    display: flex;
+}
+
+.lista_perfil div h4,
+.lista_perfil div span {
+    padding: 0.3rem 0.8rem;
+    font-size: 1rem;
+    text-align: left;
+    color: #555;
+    font-weight: bold;
+}
+
+.lista_perfil div h4 {
+    width: 120px;
+    color: #888;
+}
+
+.lista_perfil div span.tipo {
+    margin-right: 10px;
+    border-radius: 0.5rem;
+    text-align: center;
+    font-weight: 300;
+    color: #FFF;
+    filter: brightness(1.1);
+}
+
+/******************* LISTA STATUS *************************/
+
+.lista_status {
+    width: 80%;
+    padding: 10px 0;
+    display: none;
+    flex-direction: column;
+    gap: 1rem;
+}
+
+.lista_status div.status {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+}
+
+.lista_status div.status h4,
+.lista_status div.status span {
+    padding: 0.1rem 0.8rem;
+    font-size: 1rem;
+    text-align: left;
+}
+
+.lista_status div.status h4 {
+    min-width: 120px;
+    color: #888;
+}
+
+.lista_status div.status span {
+    min-width: 60px;
+    color: #555;
+    font-weight: bold;
+    display: none;
+}
+
+.lista_status div.status .barra {
+    background-color: #eee;
+    width: 100%;
+    height: 10px;
+    border-radius: 20px;
+}
+
+.lista_status div.status .progress-bar {
+    width: 50%;
+    height: 100%;
+    border-radius: 20px;
+}
+
+/************ CORES DO BACKGROUND POKEMON *******************/
+
+.normal {
+    background-color: #a6a877;
+}
+
+.grass {
+    background-color: #77c850;
+}
+
+.fire {
+    background-color: #ee7f30;
+}
+
+.water {
+    background-color: #678fee;
+}
+
+.electric {
+    background-color: #f7cf2e;
+}
+
+.ice {
+    background-color: #98d5d7;
+}
+
+.ground {
+    background-color: #dfbf69;
+}
+
+.flying {
+    background-color: #a98ff0;
+}
+
+.poison {
+    background-color: #a040a0;
+}
+
+.fighting {
+    background-color: #bf3029;
+}
+
+.psychic {
+    background-color: #f65687;
+}
+
+.dark {
+    background-color: #725847;
+}
+
+.rock {
+    background-color: #b8a137;
+}
+
+.bug {
+    background-color: #a8b720;
+}
+
+.ghost {
+    background-color: #6e5896;
+}
+
+.steel {
+    background-color: #b9b7cf;
+}
+
+.dragon {
+    background-color: #6f38f6;
+}
+
+.fairy {
+    background-color: #f9aec7;
+}
+
+
+/*******************************
+    VERSÃO P/ TABLET
+*******************************/
+@media screen and (min-width:420px) and (max-width: 780px) {
+    section.content {
+        max-width: 600px;
+    }
+
+    main .pokemons {
+        grid-template-columns: 1fr 1fr;
+        gap: 0.8rem;
+    }
+
+    .pokemon .titulo {
+        font-size: 1.2rem;
+    }
+
+    .pokemon ul {
+        flex-direction: row;
+    }
+
+    .pokemon img {
+        max-width: 80px;
+    }
+
+    /************ MODAL POKEMON *******************/
+
+    #modal .content .topo span.titulo {
+        font-size: 2.5rem;
+    }
+
+    .lista_perfil,
+    .lista_status {
+        width: 90%;
+    }
+
+    .lista_status div.status {
+        flex-direction: row;
+        align-items: center;
+    }
+
+    .lista_status div.status span {
+        display: block;
+    }
+
+    .lista_status div.status .barra {
+        width: 100%
+    }
+}
+
+
+/*******************************
+    VERSÃO P/ DESKTOP
+*******************************/
+@media screen and (min-width:781px) {
+    section.content {
+        max-width: 1000px;
+    }
+
+    main .pokemons {
+        grid-template-columns: 1fr 1fr 1fr;
+        gap: 0.8rem;
+    }
+
+    .pokemon .titulo {
+        font-size: 1.5rem;
+    }
+
+    .pokemon ul {
+        flex-direction: row;
+    }
+
+    .pokemon img {
+        max-width: 90px;
+        max-height: 90px;
+    }
+
+    /************ MODAL POKEMON *******************/
+
+    #modal .content .topo span.titulo {
+        font-size: 2.5rem;
+    }
+
+    .lista_perfil,
+    .lista_status {
+        width: 90%;
+    }
+
+    .lista_status div.status {
+        flex-direction: row;
+        align-items: center;
+    }
+
+    .lista_status div.status span {
+        display: block;
+    }
+
+    .lista_status div.status .barra {
+        width: 100%
+    }
+}
